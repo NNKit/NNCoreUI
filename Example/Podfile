@@ -1,8 +1,9 @@
 use_frameworks!
+inhibit_all_warnings!
 
 target 'NNCoreUI_Example' do
-  pod 'NNCoreUI', :path => '../'
-
+  pod 'NNCoreUI', :path => '../' , :inhibit_warnings => false
+  pod 'NNCore', :path => '../../NNCore'
   target 'NNCoreUI_Tests' do
     inherit! :search_paths
 
