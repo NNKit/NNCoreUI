@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'NNCoreUI_Example' do
+  pod 'NNCoreUI', :path => '../'
+
+  target 'NNCoreUI_Tests' do
+    inherit! :search_paths
+
+    pod 'Kiwi'
+  end
+end
