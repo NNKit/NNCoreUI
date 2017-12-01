@@ -8,14 +8,10 @@
 #ifndef NNCoreUI_h
 #define NNCoreUI_h
 
-#if __has_include(<NNetwork/NNetwork.h>)
-    #import <NNetwork/NNURLRequest.h>
-    #import <NNetwork/NNURLRequestAgent.h>
-    #import <NNetwork/NNReachablility.h>
+#if __has_include(<NNCoreUI/NNCoreUI.h>)
+    #import <NNCoreUI/NNImageButton.h>
 #else
-    #import "NNURLRequest.h"
-    #import "NNURLRequestAgent.h"
-    #import "NNReachablility.h"
+    #import "NNImageButton.h"
 #endif
 
 /// ========================================
