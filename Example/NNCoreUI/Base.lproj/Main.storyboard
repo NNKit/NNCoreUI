@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,10 +18,44 @@
                         <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="eid-aM-cAZ" customClass="NNImageButton">
+                                <rect key="frame" x="137.5" y="50" width="100" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="xAb-8J-8K6" customClass="NNImageButton">
+                                <rect key="frame" x="137" y="120" width="100" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="RgN-E1-YBb" customClass="NNImageButton">
+                                <rect key="frame" x="137" y="190" width="100" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="jGI-MB-Imu" customClass="NNImageButton">
+                                <rect key="frame" x="137" y="260" width="100" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jGI-MB-Imu" firstAttribute="top" secondItem="RgN-E1-YBb" secondAttribute="bottom" constant="20" id="5Z9-yC-qul"/>
+                            <constraint firstItem="eid-aM-cAZ" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="AH4-1y-QiA"/>
+                            <constraint firstItem="RgN-E1-YBb" firstAttribute="top" secondItem="xAb-8J-8K6" secondAttribute="bottom" constant="20" id="YlK-DH-Jcx"/>
+                            <constraint firstItem="jGI-MB-Imu" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="eIJ-0z-Qd0"/>
+                            <constraint firstItem="xAb-8J-8K6" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="lvh-jx-6lO"/>
+                            <constraint firstItem="RgN-E1-YBb" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="oqD-ou-Pmj"/>
+                            <constraint firstItem="xAb-8J-8K6" firstAttribute="top" secondItem="eid-aM-cAZ" secondAttribute="bottom" constant="20" id="u99-lz-UQk"/>
+                            <constraint firstItem="eid-aM-cAZ" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="30" id="uxE-Ye-qvz"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bottomButton" destination="jGI-MB-Imu" id="E9J-f0-IwY"/>
+                        <outlet property="leftButton" destination="eid-aM-cAZ" id="1kB-Z9-P1w"/>
+                        <outlet property="rightButton" destination="xAb-8J-8K6" id="LlY-bm-mee"/>
+                        <outlet property="topButton" destination="RgN-E1-YBb" id="Gk8-ZU-Wjc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
