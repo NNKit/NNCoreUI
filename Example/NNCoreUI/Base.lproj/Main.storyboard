@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FaV-a2-GjZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,19 +22,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="eid-aM-cAZ" customClass="NNImageButton">
-                                <rect key="frame" x="137.5" y="50" width="100" height="50"/>
+                                <rect key="frame" x="137.5" y="94" width="100" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="xAb-8J-8K6" customClass="NNImageButton">
-                                <rect key="frame" x="137" y="120" width="100" height="50"/>
+                                <rect key="frame" x="137" y="164" width="100" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="RgN-E1-YBb" customClass="NNImageButton">
-                                <rect key="frame" x="137" y="190" width="100" height="50"/>
+                                <rect key="frame" x="137" y="234" width="100" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="50" translatesAutoresizingMaskIntoConstraints="NO" id="jGI-MB-Imu" customClass="NNImageButton">
-                                <rect key="frame" x="137" y="260" width="100" height="50"/>
+                                <rect key="frame" x="137" y="304" width="100" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -50,16 +50,91 @@
                             <constraint firstItem="eid-aM-cAZ" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="30" id="uxE-Ye-qvz"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="IXu-aL-N7J"/>
                     <connections>
                         <outlet property="bottomButton" destination="jGI-MB-Imu" id="E9J-f0-IwY"/>
                         <outlet property="leftButton" destination="eid-aM-cAZ" id="1kB-Z9-P1w"/>
                         <outlet property="rightButton" destination="xAb-8J-8K6" id="LlY-bm-mee"/>
                         <outlet property="topButton" destination="RgN-E1-YBb" id="Gk8-ZU-Wjc"/>
+                        <segue destination="c80-fG-zo6" kind="show" identifier="alertDemo" id="GHz-DL-7wE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="228" y="421"/>
+        </scene>
+        <!--Alert Demo Controller-->
+        <scene sceneID="ald-gX-WzS">
+            <objects>
+                <viewController storyboardIdentifier="NNAlertDemoController" id="c80-fG-zo6" customClass="NNAlertDemoController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uLY-rv-NAU"/>
+                        <viewControllerLayoutGuide type="bottom" id="zhA-8T-ZBy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ei5-lJ-gJo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gO0-gN-phZ">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Alert" width="188" id="HZj-Wp-lGg">
+                                        <connections>
+                                            <action selector="handleDemoStyleChanged:" destination="c80-fG-zo6" id="UVF-xt-H4J"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem tag="1" title="ActionSheet" width="315" id="jYF-sR-4uq">
+                                        <connections>
+                                            <action selector="handleDemoStyleChanged:" destination="c80-fG-zo6" id="uhZ-Bf-zR9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M3d-Y4-R85">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="c80-fG-zo6" id="JIx-UE-GlX"/>
+                                    <outlet property="delegate" destination="c80-fG-zo6" id="Edf-tS-2sg"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zhA-8T-ZBy" firstAttribute="top" secondItem="gO0-gN-phZ" secondAttribute="bottom" id="Axf-iQ-vw9"/>
+                            <constraint firstAttribute="trailing" secondItem="M3d-Y4-R85" secondAttribute="trailing" id="BSv-ar-xPN"/>
+                            <constraint firstItem="gO0-gN-phZ" firstAttribute="leading" secondItem="Ei5-lJ-gJo" secondAttribute="leading" id="OIp-XG-bgd"/>
+                            <constraint firstItem="M3d-Y4-R85" firstAttribute="leading" secondItem="Ei5-lJ-gJo" secondAttribute="leading" id="eh2-K5-AiZ"/>
+                            <constraint firstItem="gO0-gN-phZ" firstAttribute="top" secondItem="M3d-Y4-R85" secondAttribute="bottom" id="osF-1U-L8J"/>
+                            <constraint firstAttribute="trailing" secondItem="gO0-gN-phZ" secondAttribute="trailing" id="sjz-6O-cD5"/>
+                            <constraint firstItem="M3d-Y4-R85" firstAttribute="top" secondItem="Ei5-lJ-gJo" secondAttribute="top" id="ua7-kw-2nf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="M3d-Y4-R85" id="OwP-2w-56Y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WNf-29-4Im" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="889" y="421"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tuh-wH-MVU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FaV-a2-GjZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yJw-Fr-dIh">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="whP-gf-Uak" kind="relationship" relationship="rootViewController" id="6NU-9K-gi5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sIg-xN-gSk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-452" y="421"/>
         </scene>
     </scenes>
 </document>

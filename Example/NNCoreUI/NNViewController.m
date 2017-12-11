@@ -11,12 +11,10 @@
 
 @interface NNViewController ()
 
-@property (strong, nonatomic) NNImageButton *imageButton;
 @property (weak, nonatomic) IBOutlet NNImageButton *leftButton;
 @property (weak, nonatomic) IBOutlet NNImageButton *rightButton;
 @property (weak, nonatomic) IBOutlet NNImageButton *topButton;
 @property (weak, nonatomic) IBOutlet NNImageButton *bottomButton;
-
 
 @end
 
@@ -25,14 +23,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.imageButton = [[NNImageButton alloc] initWithFrame:CGRectMake(0, 0, 30, 30)];
-    self.imageButton.backgroundColor = [UIColor redColor];
-    [self.imageButton setTitle:@"测试" forState:UIControlStateNormal];
-    [self.imageButton setImage:[UIImage imageNamed:@"success"] forState:UIControlStateNormal];
-    [self.imageButton setTitle:@"测试1" forState:UIControlStateHighlighted];
-    [self.imageButton setImage:[UIImage imageNamed:@"failed"] forState:UIControlStateHighlighted];
-    self.imageButton.imageSide = NNImageButtonImageSideBottom;
-    [self.view addSubview:self.imageButton];
+    
+        
+//    [LEEAlert alert].config
+//    .LeeTitle(@"标题")
+//    .LeeContent(@"内容")
+//    .LeeCancelAction(@"取消", ^{
+//
+//        // 取消点击事件Block
+//    })
+//    .LeeAction(@"确认", ^{
+//
+//        // 确认点击事件Block
+//    })
+//    .LeeShow(); // 设置完成后 别忘记调用Show来显示
+
 
     self.leftButton.imageSide = NNImageButtonImageSideLeft;
     [self updateButtonStyle:self.leftButton title:@"LeftButton"];
@@ -43,8 +48,32 @@
     self.topButton.imageSide = NNImageButtonImageSideTop;
     [self updateButtonStyle:self.topButton title:@"TopButton"];
    
+    self.bottomButton.contentInsets = UIEdgeInsetsMake(10, 20, 10, 20);
     self.bottomButton.imageSide = NNImageButtonImageSideBottom;
     [self updateButtonStyle:self.bottomButton title:@"BottomButton"];
+    
+    
+    {   // 测试attrs title
+        
+        NNImageButton *imageButton = [[NNImageButton alloc] initWithFrame:CGRectMake(0, 100, 150, 50)];
+        {
+            NSMutableAttributedString *attrs = [[NSMutableAttributedString alloc] initWithString:@"AttrsWithEmoji  "];
+            NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+            attachment.image = [UIImage imageNamed:@"success"];
+            [attrs appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
+            [imageButton setAttributedTitle:attrs.copy forState:UIControlStateNormal];
+        }
+        
+        {
+            NSMutableAttributedString *attrs = [[NSMutableAttributedString alloc] initWithString:@"AttrsWithEmoji  "];
+            NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+            attachment.image = [UIImage imageNamed:@"failed"];
+            [attrs appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
+            [imageButton setAttributedTitle:attrs.copy forState:UIControlStateHighlighted];
+        }
+        [imageButton addTarget:self action:@selector(handleImageButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:imageButton];
+    }
 }
 
 - (void)updateButtonStyle:(NNImageButton *)button title:(NSString *)title {
@@ -56,4 +85,34 @@
     [button setImage:[UIImage imageNamed:@"failed"] forState:UIControlStateHighlighted];
     [button setTitleColor:[UIColor magentaColor] forState:UIControlStateHighlighted];
 }
+
+- (void)handleImageButtonAction:(NNImageButton *)button {
+    NNLogD(@"touch up inside :%@", button);
+    [self performSegueWithIdentifier:@"alertDemo" sender:self];
+
+//    __weak typeof(self) wSelf = self;
+//    [NNAlert alert].title(@"开启AlertDemo").addAction(^(NNAlertAction *action) {
+//        action.text = @"开始吧";
+//        action.dismissAlertWhenTriggered = YES;
+//        action.highlightText = @"Go";
+//        action.handler = ^(NNAlertAction *action2) {
+//            __strong typeof(wSelf) self = wSelf;
+//            [self performSegueWithIdentifier:@"alertDemo" sender:self];
+//        };
+//    }).defaultAction(@"开始", ^(NNAlertAction *action) {
+//        __strong typeof(wSelf) self = wSelf;
+//        [self performSegueWithIdentifier:@"alertDemo" sender:self];
+//    }).cancelAction(@"再等等", ^(NNAlertAction * action) {
+//        NNLogD(@"还不想看demo");
+//    }).show();
+    
+//    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 200)];
+//    customView.backgroundColor = [UIColor blueColor];
+//    [NNAlert alert].cancelAction(@"取消", ^(NNAlertAction *cancelAction) {
+//        NNLogD(@"i need cancel");
+//    }).defaultAction(@"改变下高度", ^(NNAlertAction *cancelAction) {
+//        customView.frame = CGRectMake(0, 0, 200, 100);
+//    }).customView(customView).title(@"测试标题").content(@"测试内容").show();
+}
+
 @end
