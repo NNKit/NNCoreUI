@@ -9,8 +9,10 @@
 #define NNCoreUI_h
 
 #if __has_include(<NNCoreUI/NNCoreUI.h>)
+    #import <NNCoreUI/NNAlert.h>
     #import <NNCoreUI/NNImageButton.h>
 #else
+    #import "NNAlert.h"
     #import "NNImageButton.h"
 #endif
 
