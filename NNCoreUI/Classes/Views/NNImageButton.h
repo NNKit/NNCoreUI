@@ -28,13 +28,18 @@ NS_ASSUME_NONNULL_BEGIN
 /** contentInsets 间距 默认UIEdgeInsetsZero */
 @property (assign, nonatomic) UIEdgeInsets contentInsets;
 
+/** 当前显示标题 */
 @property (copy, nonatomic, readonly, nullable)   NSString *currentTitle;
+/** 当前显示标题颜色 */
 @property (strong, nonatomic, readonly)   UIColor *currentTitleColor;
+/** 当前标题字体 */
 @property (strong, nonatomic, readonly)   UIFont *currentTitleFont;
+/** 当前富文本标题 */
 @property (copy, nonatomic, readonly, nullable)   NSAttributedString *currentAttributedTitle;
+/** 当前显示图片 */
 @property (strong, nonatomic, readonly, nullable)   UIImage *currentImage;
+/** 当前背景图片 */
 @property (strong, nonatomic, readonly, nullable)   UIImage *currentBackgroundImage;
-
 
 - (void)setTitle:(nullable NSString *)title forState:(UIControlState)state;
 - (void)setTitleFont:(UIFont *)font forState:(UIControlState)state;

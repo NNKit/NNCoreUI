@@ -27,6 +27,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     
     if (self = [super initWithFrame:frame]) {
+        
         [self setup];
         [self setupUI];
         [self setupConstraints];
